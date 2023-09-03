@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBI Calculator</title>
+</head>
+<body>
+    <h1>Check Your BMI (Body Mass Index)</h1>
+    <br>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+    <h2>Put your weight below in (KG)</h2>
+    <input type="number" id="inpW" placeholder="Wright your weight">
+    <br>
+    <h2>Put your height below in (CM)</h2>
+    <input type="number" id="inpH" placeholder="Wright your height">
+    <br>
+    <button onclick="checkMBI()">Calculate BMI</button>
+    <br>
+    <h2 class="res">Click on "Calculate BMI" button to check your BMI...</h2>
+</body>
+<script>
+    const weight=document.querySelector("#inpW");
+    const height=document.querySelector("#inpH");
+    const result=document.querySelector(".res");
+    function checkMBI()
+    {
+        let BMI=(weight.value)/((height.value/100)**2);
+        if(BMI<=18.4)
+        {
+            result.innerText="Your BMI is "+ BMI + " You are (Under Weight)"
+        }
+        else if(BMI>=18.5 && BMI<=24.9)
+        {
+            result.innerText="Your BMI is "+ BMI + " You are (Normal Weight)"
+        }
+        else if(BMI>=25 && BMI<=29.9)
+        {
+            result.innerText="Your BMI is "+ BMI + " You are (Over Weight)"
+        }
+        else if(BMI>=30)
+        {
+            result.innerText="Your BMI is "+ BMI + " You are (Obese)"
+        }
+    }
+</script>
+</html>
