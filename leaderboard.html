@@ -58,7 +58,8 @@
         #ent{
             width: 120px;
             height: 35px;
-            margin-left: 33.33%;
+            margin-left: 50%;
+            transform: translateX(-50%);
             background-color: black;
             color: aquamarine;
             font-family: Arial, Helvetica, sans-serif;
@@ -74,7 +75,10 @@
             <div id="max"><p>2019</p></div>
         </div>
         <br>
-        <div id="score"><p></p></div>
+        <div id="score">
+            <p class="score-text">score</p>
+            <p class="score-value"></p>
+        </div>
         <br>
         <div id="btn">
             <button>1</button>
@@ -98,21 +102,26 @@
     const score=document.querySelector("#score>p");
     const btn=document.querySelectorAll("#btn>button");
     const ent=document.querySelector("#ent");
+    const scoreText = document.querySelector('.score-text');
+    const scoreVal = document.querySelector('.score-value');
+
     btn.forEach((ele)=>{
         ele.addEventListener("click",function(){
-            score.innerText+=ele.innerText
+            scoreText.style.display='none';
+            scoreVal.innerText+=ele.innerText
         })
     })
         ent.addEventListener("click", function(){
-        if(Number (score.innerText) < Number (min.innerText) && score.innerText != "")
+            
+        if(Number (scoreVal.innerText) < Number (min.innerText) && scoreVal.innerText != "")
         {
-            min.innerText=score.innerText;
+            min.innerText=scoreVal.innerText;
         }
-        else if(Number (score.innerText) > Number (max.innerText))
+        else if(Number (scoreVal.innerText) > Number (max.innerText))
         {
-            max.innerText=score.innerText;
+            max.innerText=scoreVal.innerText;
         }
-        score.innerText = "";
+        scoreVal.innerText = "";
     })
 </script>
 </html>
